@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: Manrope;
+}
+
+body {
+    background: #EDEDED;
+}
+
+header {
+    background-color: #fff;
+    width: 100%;
+}
+
+header h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20PX 0;
+}
+
+label, .tab
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.table {
+    position: relative;
+    /* display: inline-block; */
+}
+
+.table div {
+    position: absolute;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 120px; 
+    height: 120px;
+    align-items: center;
+    margin-top: -12px;
+}
+
+.table img
+{
+    pointer-events: none;
+    width: 120px;
+    height: 120px;
+}
+.table.reserved h4
+{
+    color: #B06883;
+}
+.table.empty h4
+{
+    color: #8C8C8C;
+}
+.table.selected h4
+{
+    color: #1639CA;
+}
+
+main.reservation-page
+{
+    height: 90vh;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+
+}
+
+.tables
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    gap: 30px;
+}
+
+.map .rect
+{
+    width: 10px;
+    height: 10px;
+}
+
+.reserved-map
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #B06883;
+}
+
+.reserved-map .rect
+{
+    background: #B06883;
+}
+
+.selected-map
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1639CA;
+}
+
+.selected-map .rect
+{
+    background: #1639CA;
+}
+
+.empty-map
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #8C8C8C;
+}
+
+.empty-map .rect
+{
+    background: #8C8C8C;
+}
+
+
+.guests-control
+{
+    /* width: 35vw; */
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 5px 4px 20px 0px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 30px;
+}
+
+.guests-control div
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.guests-control div input
+{
+    border: none;
+    width: 40px;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+}
+.guests-control div input:focus
+{
+    outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+{
+    display: none;
+}
+
+.guests-control div button
+{
+    border-radius: 2px;
+    background: var(--1782-ff, #1782FF);
+    padding: 4px;
+    width: 25px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.footer
+{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.main-btn
+{
+    width: 150px;
+    height: 35px;
+    color: #fff;
+    border: none;
+    background: var(--Linear, linear-gradient(270deg, #1782FF 1.95%, rgba(23, 130, 255, 0.40) 142.11%));
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-btn:hover
+{
+    background: #000;
+    cursor: pointer;
+}

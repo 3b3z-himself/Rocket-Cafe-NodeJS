@@ -1,0 +1,563 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: Manrope;
+}
+
+body
+{
+    background: linear-gradient(180deg, #EDEDED 0%, #F8F8F8 100%);
+}
+
+.container
+{
+    display: flex;
+
+}
+.left-panel
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+    width: 100px;
+    background-color: #fff;
+    box-shadow: 5px 0px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.left-panel .logo
+{
+    width: 80px;
+}
+
+.left-panel div
+{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-panel div button
+{
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    transition: ease-in-out 300ms;
+}
+.left-panel div svg
+{
+    width: 44px;
+    fill: #959799;    
+}
+.left-panel div img
+{
+    width: 44px;
+    padding: 10px;
+}
+.left-panel div button.active
+{
+    background: #1782FF;
+}
+.left-panel div button.active svg path
+{
+    fill: #fff;
+
+}
+
+main
+{
+    margin: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+main.dashboard
+{
+    justify-content: flex-start;
+}
+.analysis
+{
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 50px;
+    align-self: center;
+}
+
+.analysis .card
+{
+    border-radius: 10px;
+    background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 125.66%);
+    padding: 24px;
+    width: 300px;
+}
+
+.analysis .card .headline
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.analysis .card .headline svg
+{
+    border-radius: 3px;
+    background: rgba(52, 117, 255, 0.20);
+}
+.analysis .card .headline select
+{
+    border: none;
+    color: #8C8C8C;
+}
+.analysis .card .headline select:focus
+{
+    outline: none;
+}
+.analysis .card .headline select option
+{
+    color: #8C8C8C;
+    font-size: 12px;
+}
+
+.analysis .card h4
+{
+    margin: 15px 0;
+    color: #5F5F5F;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.analysis .card h3
+{
+    color: #000;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+.orders-table h1
+{
+    color: #45484D;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+
+.orders-table
+{
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    padding: 30px;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* table, th, td { */
+    /* border: 1px solid #45484D; */
+  /* } */
+
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+  }
+  tr {
+    border-top: 1px solid #D9D9D9;
+    
+  }
+
+  .tr_parent
+  {
+    border: none;
+    color: #45484D;
+
+  }
+  th {
+    /* background-color: #45484D; */
+    /* color: white; */
+    border: none;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  select {
+    padding: 5px;
+  }
+
+  .done {
+    background-color: #a0a1a1;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    
+
+  }
+
+  .waiting {
+    background-color: #FDC50B;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    
+  }
+
+  .canceled {
+    background-color: #FF5722;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    }
+    .active {
+        background-color: #22ff7e;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        }
+
+    .reservation-table
+    {
+        height: 90vh;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+    
+    }
+
+    .welcome
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .add-more-btn
+    {
+        border-radius: 10px;
+        background: var(--Linear, linear-gradient(270deg, #1782FF 1.95%, rgba(23, 130, 255, 0.40) 142.11%));
+        padding: 10px 20px;
+        color: #fff;
+        border: none;
+        transition: ease-in-out 300ms;
+    }
+    .add-more-btn:hover
+    {
+        background: #000;
+        cursor: pointer;
+    }
+
+    .delete-btn
+    {
+        border-radius: 10px;
+        background: var(--Linear, linear-gradient(270deg, #ff1717 1.95%, rgba(255, 23, 23, 0.4) 142.11%));
+        padding: 5px 10px;
+        color: #fff;
+        border: none;
+        transition: ease-in-out 300ms;
+        margin-top: 15px;
+    }
+    .delete-btn:hover
+    {
+        background: #000;
+        cursor: pointer;
+    }
+
+    .menu-element
+    {
+        height: fit-content;
+        padding: 0;
+    }
+    .menu-element:hover
+    {
+        cursor: default;
+    }
+    .menu-lst
+    {
+        width: auto;
+        max-width: none;
+        height: fit-content;
+    }
+
+    .add-dish-form
+    {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .add-dish-form label
+    {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+    }
+    .input-group
+    {
+        background-color: #F8F8F8;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+    .input-group input, .input-group select
+    {
+        height: 40px;
+        width: 100%;
+        border: none;
+        background-color: transparent;
+    }
+    .input-group input:focus
+    {
+        outline: none;
+    }
+
+    
+
+
+    /* Dish 1: Dark text on a light background */
+.dish1 {
+    color: #00ADFF; /* Dark gray */
+  }
+  
+  /* Dish 2: Light text on a dark background */
+  .dish2 {
+    color: #00E3BB; /* White */
+  }
+  
+  /* Dish 3: Contrasting text color */
+  .dish3 {
+    color: #88F387; /* Yellow */
+  }
+  
+  /* Dish 4: Contrasting text color */
+  .dish4 {
+    color: #0B6AB9; /* Navy Blue */
+  }
+  
+  /* Dish 5: Contrasting text color */
+  .dish5 {
+    color: #1782FF; /* Red-Orange */
+  }
+  
+
+
+  .voucher-container
+  {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 100px;
+  }
+
+  .voucher-container .head
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .voucher-container p
+  {
+    max-width: 300px;
+    text-align: center;
+    color: #3D3D3D;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: none;
+  }
+
+  .voucher-container p strong
+  {
+    color: #3D3D3D;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .voucherChooseCards
+  {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .voucher-choice-card
+  {
+    border-radius: 7px;
+    background: #FFF;
+    padding: 30px; 
+    width: 30vw;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.10);
+    transition: ease-in-out 300ms box-shadow;
+}
+.voucher-choice-card:hover
+{
+    box-shadow: 5px 6px 30px 0px rgba(0, 0, 0, 0.20);
+    cursor: pointer;
+}
+.voucher-choice-card img
+{
+    width: 80%;
+    height: 70%;
+    object-fit:contain;
+    margin: 0 auto;
+}
+.voucher-choice-card h1
+{
+    color: #000;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.voucher-choice-card h5
+{
+    color: #494949;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;    
+}
+
+
+
+.voucher-generator
+{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.voucher-generator form
+{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.voucher-generator form label
+{
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    margin-bottom: 35px;
+    width: 100%;
+
+}
+.voucher-generator form label h4
+{
+    margin-right: auto;
+    margin-bottom: 7px;
+}
+.voucher-generator form input
+{
+    width: 100%;
+    border-radius: 7px;
+    background: #FFF;
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.10);
+    border: none;
+    padding: 15px 20px;
+}
+.voucher-generator form input:focus
+{
+    outline: none;
+}
+.voucher-generator form button
+{
+    width: 100%;
+}
+
+
+.active-vouchers-wrapper
+{
+    padding: 12px;
+    scroll-behavior: smooth;
+    height: 30vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.active-voucher
+{
+    width: 30vw;
+    display: flex;
+    margin: 15px 0;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-radius: 7px;
+    background: #FFF;
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.10);
+    
+}
+.active-voucher h4
+{
+    color: #858585;
+    font-family: Manrope;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.active-voucher button
+{
+    display: flex;
+    width: 21px;
+    height: 21px;
+    padding: 4px 3px 3px 4px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background: #FF1717;
+    border: none;
+    color: #fff;
+    text-align: center;
+
+}

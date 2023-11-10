@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add dish</title>
+</head>
+<body>
+    <form action="/add-dish" method="post" class="add-dish-form" enctype="multipart/form-data">
+        <label for="dish-name" style="display: flex;">
+            <h4>Dish Name:</h4>
+            <div class="input-group">
+                <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                </svg>
+                <input type="text" name="dish-name" required placeholder="Fluffy Pancakes" id="dish-name">
+            </div>
+        </label>
+        <label for="dish-category" style="display: flex;">
+            <h4>Dish Category:</h4>
+            <div class="input-group">
+                <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                </svg>
+                <select name="dish-category" required onchange="update_subcategories(this)">
+                    <option selected value="-">-</option>
+                    <option value="Foods">Foods</option>
+                    <option value="Desserts">Desserts</option>
+                    <option value="Drinks">Drinks</option>
+                </select>
+            </div>
+        </label>
+        <label for="sub-dish-category" style="display: none;">
+            <h4>Dish Subcategory:</h4>
+            <div class="input-group">
+                <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                </svg>
+                <select name="sub-dish-category" required>
+
+                </select>
+            </div>
+        </label>
+
+        <label for="dish-price" style="display: flex;">
+            <h4>Dish Price:</h4>
+            <div class="input-group">
+                <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                </svg>
+                <input type="number" name="dish-price" required placeholder="450.00" id="dish-price">
+            </div>
+        </label>
+        <label for="dish-image" style="display: flex;">
+            <h4>Dish Image:</h4>
+            <div class="input-group">
+                <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                </svg>
+                <input type="file" name="thumbnail" required id="dish-image">
+            </div>
+        </label>
+        <button type="submit" class="add-more-btn" style="margin: 15px auto; justify-self: center;">Add Dish</button>
+    </form>
+    <script src="rocket/scripts/admin.js"></script>
+
+</body>
+</html>

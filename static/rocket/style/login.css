@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: Manrope;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.rocket {
+    height: 10vh;
+}
+
+.data h1 {
+    color: #000;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.data input {
+    width: 100%;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background: #FFF;
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.10);
+    border: none;
+    padding: 0 10px;
+}
+
+.data :placeholder-shown {
+    padding: 10px;
+}
+
+.left p {
+    color: #3D3D3D;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 30px 0;
+    padding: 20px;
+}
+
+.right img {
+    height: 100vh;
+    width: 50vw;
+    object-fit: cover;
+}
+
+.data h1 {
+    color: #000;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 10px 0;
+}
+
+button {
+    border-radius: 15px;
+    background: #1782FF;
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.10);
+    width: 80%;
+    height: 37px;
+    margin: 10px;
+    transition: ease-in-out 300ms;
+    border: none;
+
+    text-decoration: none;
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+button:hover
+{
+    background: #000;
+    cursor: pointer;
+}
+
+.input-icon {
+    display: flex;
+    justify-content: space-between;
+}
+.data{
+    width: 100%;
+}
+
+svg {
+    margin-left: -54px;
+    /* margin: 40px; */
+    margin-top: 10px;
+    margin-right: 10px;
+}
+@media (max-width:580px){
+    .logo{
+        margin-top: 30px;
+}
+    .left p{
+        width: 90vw;
+    }
+    .right img{
+        width:100vw;
+        display: none;
+    }
+    .left{
+        display: flex;
+        align-items: center;
+    }
+    .data{
+        width: 90vw;
+    }
+}
+@media (max-width:1115px){
+    .right img{
+        width: 100%;
+        height: 100%;
+        display: none;
+
+    }
+    .logo{
+        margin-top: 30px;
+    }
+    .container{
+        height: 100vh;
+    }
+
+}

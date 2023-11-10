@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: Manrope;
+}
+
+body {
+    background-color: #000000;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 100px;
+    margin-right: 80px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+nav ul li {
+    list-style: none;
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.28px;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav button {
+    background-color: transparent;
+    border: 1px #2E82FF solid;
+    padding: 11px 38px;
+    border-radius: 6px;
+    color: #FFF;
+
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 0.22px;
+}
+.humberger-menu{
+    display: none;
+}
+.main {
+    color: #fff;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+
+}
+
+.main h1 {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Manrope;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -2.4px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.where{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Manrope;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -2.4px;
+	-webkit-text-stroke: 2px #1782FF;
+    -webkit-text-fill-color: black;
+}
+.main p{
+    color: #FFF;
+text-align: center;
+font-family: Manrope;
+font-size: 30px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 0.6px;
+display: none;
+}
+.rocket{
+    color: #1782FF;
+font-family: Manrope;
+font-size: 30px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 0.6px;
+}
+.free{
+    color: #FFF;
+font-family: Manrope;
+font-size: 30px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 0.6px;
+text-decoration-line: underline;
+}
+.img-coffe{
+    width: 950px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+}
+.voucher{
+    background-color: transparent;
+    border: 1px #2E82FF solid;
+    padding: 11px 38px;
+    border-radius: 6px;
+    color: #FFF;
+    margin-top: 50px;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 0.22px;
+}
+.corner{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width: 321px;
+    height: 321px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #2E82FF;
+    filter: blur(200px);
+    }
+    .corner2{
+    position:absolute;
+    top:0;
+    right:0;
+    width: 321px;
+    height: 321px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #2E82FF;
+    filter: blur(200px);
+    }
+@media (max-width:930px){
+    .humberger-menu{
+        display: flex;
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    nav ul{
+        display: none;
+    }
+    .main p{
+        display: block;
+        width: 85%;
+    }
+    .img-coffe{
+        width: 650px;
+    }
+    .main h1{
+        font-size: 60px;
+        letter-spacing: 2px
+    }
+    .where{
+        font-size: 55px;
+    }
+}
+@media (max-width:500px){
+    .humberger-menu{
+        display: flex;
+    }
+    nav ul{
+        display: none;
+    }
+    .img-coffe{
+        width: 375px;
+    }
+    .main h1{
+        font-size: 40px;
+        letter-spacing: 2px
+    }
+    .main span{
+        font-size: 30px;
+        letter-spacing: 2px;
+    }
+    .logo {
+        width: 50px;
+        margin-right: 237px;
+    }
+    .main p{
+        display: block;
+        width: 80%;
+    }
+    .rocket{
+        font-size: 10px;
+    }
+}
+

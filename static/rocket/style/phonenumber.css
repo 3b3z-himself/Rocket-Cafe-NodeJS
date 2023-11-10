@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: Manrope;
+}
+
+body {
+    background-color: #3475FF;
+
+}
+
+.new-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    /* min-height: 80vh; */
+    overflow: hidden;
+}
+
+.new-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 35px;
+    background: #FFF;
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.10);
+    padding: 20px;
+}
+
+.phone-num-form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.input-icon{
+    display: flex;
+    /* justify-content: space-around; */
+    margin: 10px;
+    width:100%;
+    border-radius: 7px;
+    background: #FFF;
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.10);
+    padding: 10px;
+}
+.input-icon input{
+    width: 90%;
+    border: none;
+    outline: none;
+}
+input svg{
+    margin-right: 20px;
+}
+main p{
+    color: #000;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.36px;
+}
+.input{
+    margin: 10px 0;
+}
+
+.container h5{
+    color: #858585;
+    font-family: Manrope;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+label
+{
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    accent-color: #3398FF;
+}
+
+
+.new-button, .new-link {
+    border-radius: 10px;
+    background: var(--Linear, linear-gradient(270deg, #1782FF 1.95%, rgba(23, 130, 255, 0.40) 142.11%));
+    display: flex;
+    width: 157px;
+    height: 33px;
+    padding: 11px 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    color: #FFF;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 400ms ease-in-out;
+    text-decoration: none;
+}
+
+.new-button:hover {
+    background: #000;
+    /* color: #1782FF; */
+}
+
+.new-link {
+    margin: 25px;
+}
+
+.new-link:hover {
+    background: #000;
+    /* color: #1782FF; */
+}
+@media (max-width:580px){
+    main img{
+        width: 90%;
+    }
+    main{
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(3.5px);
+    text-align: center;
+    z-index: 999;
+    justify-content: center;
+}
+
+.modal-content {
+    border-radius: 15px;
+    /* background: #FFF; */
+    /* width: 316px; */
+    /* height: 379px; */
+    flex-shrink: 0;
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    
+}
+
+.flying_rocket
+{
+    width: 316px;
+    height: 379px;
+    border-radius: 5px;
+    object-fit: cover;
+
+}
+.modal-content h1
+{
+    color: #3D413F;
+}
+.modal-content .headline
+{
+    color: #3398FF;
+    font-size: 25px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #DADADA;
+    width: 100%;
+    text-align: center;
+}
+.modal-content div
+{
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin: 5px;
+    align-items: center;
+}
+
+.modal-content div span
+{
+    color: #000;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.modal-content div span h6{
+    font-size: 16px;
+}
+.modal-content button#newOrder
+{
+    margin-top: 25px;
+    background: var(--Linear, linear-gradient(270deg, #1782FF 1.95%, rgba(23, 130, 255, 0.40) 142.11%));
+    color: #fff;
+    width: 212px;
+
+}
+
+.modal-content button{
+    display: flex;
+    height: 40px;
+    padding: 11px 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+}
