@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Update active subcategory button
             subcategoryDiv.querySelectorAll("button").forEach((subBtn) => {
               if (subBtn == this) {
-                console.log('HEHEHE')
+                console.log('HEHEHE');
                 subBtn.classList.add("active");
               } else {
                 console.log(this.innerHTML)
@@ -424,39 +424,47 @@ document.addEventListener("DOMContentLoaded", function () {
     function hideModal() {
       orderModal.style.display = "none";
     }
-  
-    sendOrderButton.addEventListener("click", () => {
-      // Replace these variables with your actual data
-      fetch('/rocket/receive_order', {
-        method: 'POST',
-        body: JSON.stringify({order: orderData}),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      setTimeout(function () {
-        window.location.href = "/rocket/phone-num";
-      }, 500);
-  
-      // document.querySelector(".modal-content.flying").style.display = "inline";
-      // const orderID = orderData.orderID;
-      // const placementTime = new Date().toLocaleString();
-      // const paymentMethod = orderData.paymentMethod;
-      // const branchLocation = orderData.branchLocation;
-      // const totalBill = orderData.priceAfterDiscount;
-      // showModal(orderID, placementTime, paymentMethod, branchLocation, totalBill);
-  
-      // setTimeout(function () {
-      //   window.location.href = "/rocket/kickoff";
-      // }, 15000);
-  
+
+    sendOrderButton.addEventListener("click", async () => {
+      if (orderData.orderedItems.length > 0) {
+          console.log(orderData);
+          const reqOrder = orderData;
+    
+          const rawResponse = await fetch('/receive_order', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({orderData})
+          })
+          .then(response => response.json())
+          .then(data => {
+              // Do something cool with the response from the backend
+              document.querySelector(".modal-content.flying").style.display = "inline";
+              const orderID = orderData.orderID;
+              const placementTime = new Date().toLocaleString();
+              const paymentMethod = orderData.paymentMethod;
+              const branchLocation = orderData.branchLocation;
+              const totalBill = orderData.priceAfterDiscount;
+              showModal(orderID, placementTime, paymentMethod, branchLocation, totalBill);
+              setTimeout(function () {
+                window.print();
+              }, 5000);
+              setTimeout(function () {
+                window.location.href = "/kickoff";
+              }, 15000);
+                      })
+          .catch(error => {
+              console.error('An error occurred while sending the order:', error);
+          });
+      }
     });
+    
+  
   
     newOrderButton.addEventListener("click", hideModal);
-    printReceiptButton.addEventListener("click", () => {
-      // Handle printing the receipt here
-      window.print();
-    });
+    
   
     document.querySelector('#voucher_box').addEventListener("click", function () {
       document.querySelector('#voucher_form').style.display = "flex";

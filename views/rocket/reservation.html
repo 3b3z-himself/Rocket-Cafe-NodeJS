@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/rocket/style/reservation.css">
+    <title>Rocket Café | Reservation</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TZFC6NF1QD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TZFC6NF1QD');
+</script>
+</head>
+
+<body>
+    <header>
+        <h1>Reservation</h1>
+    </header>
+    <form action="/rocket/table-reservation" method="post">
+    <main class="reservation-page">
+        <div class="tables">
+            {%for table in all_tables%}
+            <label for="t{{table['id']}}" class="table {{table['status']}}">
+                <img src="../../static/rocket/images/ui images/tables/{{table['status']}}.png">
+                <div><h4>T{{table['id']}}</h4></div>
+                {% if table['status'] != "reserved" %}
+                    <input type="radio" id="t{{table['id']}}" onchange="change_img(this)" required value="{{table['id']}}" name="table" class="radio">
+                {% else %}
+                    <input type="radio" id="t{{table['id']}}" disabled required value="{{table['id']}}" name="table" class="radio">
+                {% endif %}
+            </label>
+            {%endfor%}
+
+            <div class="map">
+                <div class="reserved-map"><div class="rect"></div>Reserved {{analysis['reserved']}}</div>
+                <div class="empty-map"><div class="rect"></div>Empty {{analysis['empty']}}</div>
+            </div>
+        </div>
+        <div class="guests-control">
+            <svg width="186" height="186" viewBox="0 0 186 186" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M121.8 166.104V170.904H126.6V166.104H121.8ZM25.8 166.104H21V170.904H25.8V166.104ZM160.2 166.2V171H165V166.2H160.2ZM97.8 60.5808C97.7987 63.7313 97.177 66.8506 95.9702 69.7608C94.7634 72.671 92.9952 75.3149 90.7666 77.5418C88.538 79.7686 85.8926 81.5346 82.9815 82.7391C80.0703 83.9436 76.9505 84.5629 73.8 84.5616V94.1616C92.3568 94.1616 107.4 79.128 107.4 60.5808H97.8ZM73.8 84.5616C70.6495 84.5629 67.5297 83.9436 64.6185 82.7391C61.7074 81.5346 59.062 79.7686 56.8334 77.5418C54.6048 75.3149 52.8366 72.671 51.6298 69.7608C50.423 66.8506 49.8013 63.7313 49.8 60.5808H40.2C40.2013 64.992 41.0714 69.3597 42.7606 73.4346C44.4498 77.5095 46.9251 81.2117 50.0452 84.33C53.1652 87.4483 56.8689 89.9214 60.9448 91.6084C65.0206 93.2953 69.3888 94.1629 73.8 94.1616V84.5616ZM49.8 60.5808C49.8013 57.4303 50.423 54.311 51.6298 51.4008C52.8366 48.4906 54.6048 45.8467 56.8334 43.6198C59.062 41.393 61.7074 39.627 64.6185 38.4225C67.5297 37.218 70.6495 36.5987 73.8 36.6V27C69.3888 26.9987 65.0206 27.8663 60.9448 29.5532C56.8689 31.2402 53.1652 33.7133 50.0452 36.8316C46.9251 39.9499 44.4498 43.6522 42.7606 47.727C41.0714 51.8019 40.2013 56.1696 40.2 60.5808H49.8ZM73.8 36.6C80.1619 36.6 86.2635 39.1259 90.7638 43.6227C95.2641 48.1194 97.7949 54.2189 97.8 60.5808H107.4C107.399 56.1696 106.529 51.8019 104.839 47.727C103.15 43.6522 100.675 39.9499 97.5548 36.8316C94.4348 33.7133 90.7311 31.2402 86.6552 29.5532C82.5794 27.8663 78.2112 26.9987 73.8 27V36.6ZM121.8 161.304H25.8V170.904H121.8V161.304ZM30.6 166.104V146.952H21V166.104H30.6ZM54.6 122.942H93V113.342H54.6V122.942ZM117 146.942V166.104H126.6V146.942H117ZM93 122.942C99.3652 122.942 105.47 125.471 109.971 129.972C114.471 134.473 117 140.577 117 146.942H126.6C126.6 138.031 123.06 129.485 116.759 123.184C110.458 116.882 101.911 113.342 93 113.342V122.942ZM30.6 146.952C30.6 140.587 33.1286 134.473 37.6294 129.972C42.1303 125.471 48.2348 122.942 54.6 122.942V113.342C45.6887 113.342 37.1424 116.882 30.8412 123.184C24.54 129.485 21 138.041 21 146.952H30.6ZM155.4 151.8V166.2H165V151.8H155.4ZM160.2 161.4H136.2V171H160.2V161.4ZM136.2 132.6C141.292 132.6 146.176 134.623 149.776 138.224C153.377 141.824 155.4 146.708 155.4 151.8H165C165 144.162 161.966 136.836 156.565 131.435C151.164 126.034 143.838 123 136.2 123V132.6ZM131.4 103.8C127.581 103.8 123.918 102.283 121.218 99.5823C118.517 96.8818 117 93.2191 117 89.4H107.4C107.4 95.7652 109.929 101.87 114.429 106.371C118.93 110.871 125.035 113.4 131.4 113.4V103.8ZM145.8 89.4C145.8 93.2191 144.283 96.8818 141.582 99.5823C138.882 102.283 135.219 103.8 131.4 103.8V113.4C137.765 113.4 143.87 110.871 148.371 106.371C152.871 101.87 155.4 95.7652 155.4 89.4H145.8ZM131.4 75C135.219 75 138.882 76.5171 141.582 79.2177C144.283 81.9182 145.8 85.5809 145.8 89.4H155.4C155.4 83.0348 152.871 76.9303 148.371 72.4294C143.87 67.9286 137.765 65.4 131.4 65.4V75ZM131.4 65.4C125.035 65.4 118.93 67.9286 114.429 72.4294C109.929 76.9303 107.4 83.0348 107.4 89.4H117C117 85.5809 118.517 81.9182 121.218 79.2177C123.918 76.5171 127.581 75 131.4 75V65.4Z" fill="#1782FF"/>
+            </svg>
+            <h3>Guests</h3>
+            <div>
+                <button type="button" id="decrementButton">-</button>
+                <input type="number" id="integerInput" name="guests" value="1">
+                <button type="button" id="incrementButton">+</button>
+            </div>
+        </div>
+    </main>
+    <div class="footer">
+        <a class="main-btn" href="/rocket/account">Back</a>
+        <button type="submit" class="main-btn" name="submit" value="Submit">Next</button>
+    </div>
+    </form>
+    <script>
+        const incrementButton = document.getElementById("incrementButton");
+        const decrementButton = document.getElementById("decrementButton");
+        const integerInput = document.getElementById("integerInput");
+
+        // Add event listener to the increment button
+        incrementButton.addEventListener("click", () => {
+            const value = parseInt(integerInput.value);
+            integerInput.value = value + 1;
+
+            // Enable the decrement button
+            decrementButton.disabled = false;
+
+        });
+
+        // Add event listener to the decrement button
+        decrementButton.addEventListener("click", () => {
+            const value = parseInt(integerInput.value);
+
+            if (value > 1) {
+                integerInput.value = value - 1;
+            } else {
+                // Disable the decrement button
+                decrementButton.disabled = true;
+                console.log("Decrement Refused: " + integerInput.value);
+            }
+        });
+
+        // Add event listener to the form
+        document.getElementById("integerForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission for this example
+            const inputValue = parseInt(integerInput.value);
+            alert("Submitted Value: " + inputValue);
+        });
+        function change_img(element) {
+            element.parentElement.querySelector('img').src = '../../static/rocket/images/ui images/tables/selected.png';
+            element.parentElement.classList.add('selected');
+            const selectedElements = document.querySelectorAll('.table.selected');
+            selectedElements.forEach(selectedElement => {
+                if (selectedElement !== element.parentElement) {
+                    selectedElement.classList.remove('selected');
+                    selectedElement.querySelector('img').src = '../../static/rocket/images/ui images/tables/empty.png';
+                }
+    });
+
+        }
+
+    </script>
+</body>
+
+</html>

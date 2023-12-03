@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Café | Place Order</title>
+    <link rel="stylesheet" href="rocket/style/order.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TZFC6NF1QD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TZFC6NF1QD');
+</script>
+
+</head>
+<body>
+    <nav>
+        <h1 class="headline">Order Placement</h1>
+    </nav>
+    <main>
+        <div>
+            <section class="categories">
+                <h1 class="headline">Category</h1>
+                <div class="categories-lst">
+                    <button class="active">
+                        <svg width="45" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#1782FF"/>
+                        </svg>
+                        <h6 class="h4">All</h6>
+                    </button>
+                    <button category="Foods">
+                        <svg width="34" height="35" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 16.5698V8.06982H3V7.06982H4V6.06982H3V5.06982H4V4.06982H3V3.06982H9C9.5 3.09982 9.95 3.30982 10.34 3.69982C10.73 4.08982 10.95 4.56982 11 5.06982H21V6.06982H11C10.95 6.59982 10.73 7.06982 10.34 7.49982C9.95 7.92982 9.5 8.11982 9 8.06982H7V15.1198C7.05 15.1198 7.13 15.1098 7.24 15.0698C7.35 15.0298 7.44 15.0698 7.5 15.0698C8.06 15.0698 8.7 15.2098 9.42 15.4898C9.83 14.5698 10.53 13.7498 11.53 13.0698C12.53 12.3898 13.53 12.0698 14.53 12.0698C16.06 12.0698 17.36 12.5998 18.42 13.6598C19.48 14.7198 20 16.0198 20 17.5698V17.8398C20 17.9698 19.97 18.0398 19.97 18.0698H3.14C3.27 17.5698 3.55 17.0698 4 16.5698ZM6 15.2998V8.06982H5V15.7698C5.5 15.5198 5.81 15.3698 6 15.2998ZM9 7.06982V6.06982H7V7.06982H9ZM9 4.06982H7V5.06982H9V4.06982ZM5 4.06982V5.06982H6V4.06982H5ZM5 6.06982V7.06982H6V6.06982H5ZM2 19.0698H22L20 21.0698H4L2 19.0698Z" fill="#B4B4B4"/>
+                        </svg>
+                        <h6 class="h4">Foods</h6>
+                    </button>
+                    <button category="Desserts">
+                        <svg width="34" height="35" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 9.81988V8.69488C2.99996 8.20276 3.10754 7.71659 3.31521 7.27043C3.52287 6.82427 3.82559 6.42892 4.20216 6.11209C4.57872 5.79526 5.02002 5.56462 5.49512 5.43632C5.97023 5.30802 6.46764 5.28518 6.9525 5.36938C7.26809 4.27453 7.9311 3.31197 8.84157 2.62687C9.75203 1.94177 10.8606 1.57129 12 1.57129C13.1394 1.57129 14.248 1.94177 15.1584 2.62687C16.0689 3.31197 16.7319 4.27453 17.0475 5.36938C17.5324 5.28518 18.0298 5.30802 18.5049 5.43632C18.98 5.56462 19.4213 5.79526 19.7978 6.11209C20.1744 6.42892 20.4771 6.82427 20.6848 7.27043C20.8925 7.71659 21 8.20276 21 8.69488V9.81988C21.0003 12.0772 20.1524 14.2523 18.6243 15.9137C17.0962 17.5752 14.9995 18.6018 12.75 18.7899V21.0699H11.25V18.7899C9.00051 18.6018 6.90384 17.5752 5.37574 15.9137C3.84763 14.2523 2.99967 12.0772 3 9.81988ZM9.729 9.06838H14.271C14.2043 8.47402 14.297 7.87263 14.5395 7.32591C14.782 6.7792 15.1656 6.30686 15.651 5.95738C15.4567 5.13503 14.9905 4.40234 14.3279 3.87801C13.6652 3.35368 12.845 3.06841 12 3.06841C11.155 3.06841 10.3348 3.35368 9.67213 3.87801C9.00949 4.40234 8.54328 5.13503 8.349 5.95738C8.8346 6.30699 9.21837 6.77957 9.4609 7.32658C9.70342 7.87358 9.79596 8.47528 9.729 9.06988V9.06838ZM8.0205 9.06838C8.07612 8.82146 8.07549 8.56519 8.01864 8.31855C7.96179 8.0719 7.85019 7.8412 7.6921 7.64354C7.534 7.44587 7.33347 7.2863 7.10535 7.17665C6.87723 7.06699 6.62736 7.01005 6.37425 7.01005C6.12114 7.01005 5.87127 7.06699 5.64315 7.17665C5.41503 7.2863 5.2145 7.44587 5.0564 7.64354C4.89831 7.8412 4.78671 8.0719 4.72986 8.31855C4.67301 8.56519 4.67238 8.82146 4.728 9.06838H8.0205ZM15.9795 9.06838H19.2705C19.3261 8.82146 19.3255 8.56519 19.2686 8.31855C19.2118 8.0719 19.1002 7.8412 18.9421 7.64354C18.784 7.44587 18.5835 7.2863 18.3554 7.17665C18.1272 7.06699 17.8774 7.01005 17.6243 7.01005C17.3711 7.01005 17.1213 7.06699 16.8932 7.17665C16.665 7.2863 16.4645 7.44587 16.3064 7.64354C16.1483 7.8412 16.0367 8.0719 15.9799 8.31855C15.923 8.56519 15.9224 8.82146 15.978 9.06838H15.9795ZM12 17.3199C13.8595 17.3199 15.6527 16.6291 17.0317 15.3815C18.4106 14.134 19.2769 12.4186 19.4625 10.5684H4.5375C4.72308 12.4186 5.58939 14.134 6.96832 15.3815C8.34726 16.6291 10.1405 17.3199 12 17.3199ZM9 21.0714H15C15.1989 21.0714 15.3897 21.1504 15.5303 21.2911C15.671 21.4317 15.75 21.6225 15.75 21.8214C15.75 22.0203 15.671 22.2111 15.5303 22.3517C15.3897 22.4924 15.1989 22.5714 15 22.5714H9C8.80109 22.5714 8.61032 22.4924 8.46967 22.3517C8.32902 22.2111 8.25 22.0203 8.25 21.8214C8.25 21.6225 8.32902 21.4317 8.46967 21.2911C8.61032 21.1504 8.80109 21.0714 9 21.0714Z" fill="#B4B4B4"/>
+                            </svg>
+
+                        <h6 class="h4">Desserts</h6>
+                    </button>
+                    <button category="Drinks">
+                        <svg width="34" height="35" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.48 1.06982H20V3.06982H15.98L15.33 5.29182H20.07L18.858 23.0698H6.217L5.347 10.3478C3.475 9.93282 2 8.30882 2 6.29182C2 3.97182 3.914 2.12582 6.231 2.12582C8.204 2.12582 9.884 3.46282 10.341 5.29182H13.245L14.481 1.06982H14.48ZM12.66 7.29182H7.145L7.381 10.7738L11.448 11.4348L12.66 7.29182ZM11.996 13.5498L7.521 12.8228L8.085 21.0698H16.989L17.44 14.4538L12 13.5508H11.997L11.996 13.5498ZM17.577 12.4498L17.929 7.29182H14.744L13.436 11.7618L17.577 12.4488V12.4498ZM8.211 5.29082C8.01753 4.93535 7.73114 4.63911 7.3824 4.43374C7.03367 4.22838 6.6357 4.1216 6.231 4.12482C4.98 4.12582 4 5.11482 4 6.29182C4 7.08882 4.48 7.81482 5.201 8.18782L5.004 5.29182L8.211 5.29082Z" fill="#B4B4B4"/>
+                            </svg>
+
+                        <h6 class="h4">Drinks</h6>
+                    </button>
+
+                </div>
+                <div class="sub categories-lst" style="display: flex; margin: 20px 0;"></div>
+            </section>
+            <section class="menu">
+                <div class="heading">
+                    <h1 class="headline">Menu</h1>
+                    <!-- fit mode place (future feature) -->
+                </div>
+                <div class="menu-lst">
+
+                    <% for (dish of dishes) { %>
+                        <div class="menu-element" data-category="<%= dish.cat %>" data-subcategory="<%= dish.subcat %>">
+                            <img src="<%= dish.thumbnail %>" style="    width: 220px;
+                            height: 125px;">
+                            <h2 class="element-name h2"><%= dish.name %></h2>
+                            <p class="element-desc p"><%= dish.description %></p>
+                            <button class="add-chart"><h3 class="price"><%= dish.price %> LE</h3>
+                                <img src="rocket/images/random/uil_shopping-trolley.png" alt="Add to Cart">
+                            </button>
+                        </div>
+                        <% } %>
+                </div>
+            </section>
+            <section>
+                <a class="main-btn" href="/rocket/account" style="display: inline; text-decoration: none;">Back</a>
+            </section>
+        </div>
+        <div class="order-chart">
+            <!-- <div class="heading">
+                <div class="order-id">
+                    <h1>ORDER #</h1>
+                    <h6 class="order-num">{{order_data['order_id']}}</h6>
+                </div>
+                <div class="reservation-data">
+                    <div class="reserved-guests">
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_5831_1806)">
+                            <path d="M6 2.35047e-05C5.5336 -0.0111296 5.06968 0.0711015 4.63552 0.24188C4.20137 0.412658 3.80575 0.668534 3.47194 0.994457C3.13813 1.32038 2.87287 1.70977 2.69176 2.13972C2.51065 2.56966 2.41735 3.03149 2.41735 3.49802C2.41735 3.96456 2.51065 4.42638 2.69176 4.85633C2.87287 5.28628 3.13813 5.67567 3.47194 6.00159C3.80575 6.32751 4.20137 6.58339 4.63552 6.75417C5.06968 6.92495 5.5336 7.00718 6 6.99602C6.4664 7.00718 6.93032 6.92495 7.36448 6.75417C7.79863 6.58339 8.19425 6.32751 8.52806 6.00159C8.86187 5.67567 9.12713 5.28628 9.30824 4.85633C9.48935 4.42638 9.58265 3.96456 9.58265 3.49802C9.58265 3.03149 9.48935 2.56966 9.30824 2.13972C9.12713 1.70977 8.86187 1.32038 8.52806 0.994457C8.19425 0.668534 7.79863 0.412658 7.36448 0.24188C6.93032 0.0711015 6.4664 -0.0111296 6 2.35047e-05ZM4 8.99402C3.07174 8.99402 2.1815 9.36277 1.52513 10.0191C0.868749 10.6755 0.5 11.5658 0.5 12.494L0.5 14.991H11.5V12.494C11.5 11.5658 11.1313 10.6755 10.4749 10.0191C9.8185 9.36277 8.92826 8.99402 8 8.99402H4ZM13 10H12.5V15H15.5V12.5C15.5 11.837 15.2366 11.2011 14.7678 10.7323C14.2989 10.2634 13.663 10 13 10Z" fill="#4F4F4F"/>
+                            <path d="M12 4C11.337 4 10.7011 4.26339 10.2322 4.73223C9.76339 5.20107 9.5 5.83696 9.5 6.5C9.5 7.16304 9.76339 7.79893 10.2322 8.26777C10.7011 8.73661 11.337 9 12 9C12.663 9 13.2989 8.73661 13.7678 8.26777C14.2366 7.79893 14.5 7.16304 14.5 6.5C14.5 5.83696 14.2366 5.20107 13.7678 4.73223C13.2989 4.26339 12.663 4 12 4Z" fill="#4F4F4F"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_5831_1806">
+                            <rect width="15" height="15" fill="white" transform="translate(0.5)"/>
+                            </clipPath>
+                            </defs>
+                            </svg>
+                            <h3>GUESTS: <span class="reserved-guests-num">{{order_data['guests']}}</span></h3>
+                    </div>
+                    <div class="reserved-table">
+                        <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_5831_1812)">
+                            <path d="M4.5 16L6.5 11H9.5V6.975C6.95 6.89167 4.81233 6.51667 3.087 5.85C1.36167 5.18333 0.499334 4.4 0.5 3.5C0.5 2.53333 1.475 1.70833 3.425 1.025C5.375 0.341667 7.73333 0 10.5 0C13.2833 0 15.646 0.341667 17.588 1.025C19.53 1.70833 20.5007 2.53333 20.5 3.5C20.5 4.4 19.6373 5.18333 17.912 5.85C16.1867 6.51667 14.0493 6.89167 11.5 6.975V11H14.5L16.5 16H14.5L13.3 13H7.7L6.5 16H4.5Z" fill="#4F4F4F"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_5831_1812">
+                            <rect width="24" height="24" fill="white" transform="translate(-3.5 -4)"/>
+                            </clipPath>
+                            </defs>
+                            </svg>
+                            <h3>TABLE: <span class="reserved-table-num">{{order_data['table']}}</span></h3>
+
+                    </div>
+                </div>
+
+
+            </div> -->
+            <div class="trolley">
+                <!-- here elements would be generated -->
+            </div>
+            <div class="voucher-group">
+                <a href="#" id="voucher_box">Have a voucher code?</a>
+                <div id="voucher_form" style="display: none; flex-direction: column;align-items: center;">
+                    <div class="v-input">
+                        <input type="text" placeholder="Enter your voucher code" name="voucher_key" required>
+                        <button id="validate_voucher">+</button>
+                    </div>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <a id="remove_voucher" style="display: none;" href="#">Remove Voucher</a>
+
+            </div>
+                <div class="bill">
+                    <div class="bill-detailed">
+                        <div>
+                            <h4>SUBTOTAL</h4>
+                            <p class="subtotal-amount">450 LE</p>
+                        </div>
+                        <div style="display:none;">
+                            <h4>SERVICE CHARGE 5%</h4>
+                            <p class="service-charge-amount">30 LE</p>
+                        </div>
+                        <div id="discount-v" style="display: none;">
+                            <h4>DISCOUNT 5%</h4>
+                            <p class="discount-amount">-30 LE</p>
+                        </div>
+                    </div>
+                    <div class="tot">
+                        <h4>TOTAL</h4>
+                        <p class="total-amount">480 LE</p>
+                    </div>
+                </div>
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <svg width="57" height="38" viewBox="0 0 57 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="57" height="38" rx="2" fill="white"/>
+                        <path d="M35.2089 11.5815C32.0611 11.5815 29.248 13.2131 29.248 16.2276C29.248 19.6846 34.2371 19.9234 34.2371 21.6601C34.2371 22.3914 33.3991 23.046 31.9678 23.046C29.9365 23.046 28.4183 22.1313 28.4183 22.1313L27.7686 25.1733C27.7686 25.1733 29.5176 25.9459 31.8396 25.9459C35.2812 25.9459 37.9893 24.2342 37.9893 21.1682C37.9893 17.5152 32.9794 17.2835 32.9794 15.6715C32.9794 15.0987 33.6674 14.471 35.0946 14.471C36.7049 14.471 38.0187 15.1362 38.0187 15.1362L38.6545 12.1982C38.6545 12.1982 37.2249 11.5815 35.2089 11.5815ZM6.40923 11.8033L6.33301 12.2468C6.33301 12.2468 7.65731 12.4891 8.85006 12.9726C10.3858 13.527 10.4952 13.8497 10.7539 14.8521L13.5723 25.7172H17.3505L23.1711 11.8033H19.4016L15.6615 21.2634L14.1353 13.2446C13.9954 12.3268 13.2864 11.8033 12.4186 11.8033H6.40923ZM24.6869 11.8033L21.7298 25.7172H25.3243L28.271 11.8033H24.6869ZM44.7349 11.8033C43.8681 11.8033 43.4089 12.2673 43.0719 13.0783L37.8057 25.7172H41.5752L42.3045 23.6107H46.8968L47.3403 25.7172H50.6663L47.7647 11.8033H44.7349ZM45.2252 15.5624L46.3425 20.7836H43.3491L45.2252 15.5624Z" fill="#1434CB"/>
+                    </svg>
+                    <h4>Visa</h4>
+                </div>
+
+                <div class="payment-method">
+                    <svg width="57" height="38" viewBox="0 0 57 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="57" height="38" rx="2" fill="white"/>
+                        <path d="M23.6484 10.1694H33.3523V27.6056H23.6484V10.1694Z" fill="#FF5F00"/>
+                        <path d="M24.2643 18.8875C24.2643 15.3448 25.9278 12.2026 28.4847 10.1694C26.6055 8.69074 24.2335 7.79736 21.6458 7.79736C15.5154 7.79736 10.5557 12.7571 10.5557 18.8875C10.5557 25.0179 15.5154 29.9776 21.6458 29.9776C24.2335 29.9776 26.6055 29.0843 28.4847 27.6056C25.9278 25.6032 24.2643 22.4302 24.2643 18.8875Z" fill="#EB001B"/>
+                        <path d="M46.4447 18.8875C46.4447 25.0179 41.4849 29.9776 35.3545 29.9776C32.7668 29.9776 30.3948 29.0843 28.5156 27.6056C31.1033 25.5724 32.736 22.4302 32.736 18.8875C32.736 15.3448 31.0725 12.2026 28.5156 10.1694C30.3948 8.69074 32.7668 7.79736 35.3545 7.79736C41.4849 7.79736 46.4447 12.7879 46.4447 18.8875Z" fill="#F79E1B"/>
+                    </svg>
+
+                    <h4>Mastercard</h4>
+                </div>
+
+                <div class="payment-method active">
+                    <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.8125 5.4375C1.8125 4.9568 2.00346 4.49578 2.34337 4.15587C2.68328 3.81596 3.1443 3.625 3.625 3.625H25.375C25.8557 3.625 26.3167 3.81596 26.6566 4.15587C26.9965 4.49578 27.1875 4.9568 27.1875 5.4375H1.8125ZM14.5 19.9375C15.4614 19.9375 16.3834 19.5556 17.0633 18.8758C17.7431 18.1959 18.125 17.2739 18.125 16.3125C18.125 15.3511 17.7431 14.4291 17.0633 13.7492C16.3834 13.0694 15.4614 12.6875 14.5 12.6875C13.5386 12.6875 12.6166 13.0694 11.9367 13.7492C11.2569 14.4291 10.875 15.3511 10.875 16.3125C10.875 17.2739 11.2569 18.1959 11.9367 18.8758C12.6166 19.5556 13.5386 19.9375 14.5 19.9375Z" fill="#4ECB71"/>
+                        <path d="M0 9.0625C0 8.5818 0.190959 8.12078 0.530869 7.78087C0.870779 7.44096 1.3318 7.25 1.8125 7.25H27.1875C27.6682 7.25 28.1292 7.44096 28.4691 7.78087C28.809 8.12078 29 8.5818 29 9.0625V23.5625C29 24.0432 28.809 24.5042 28.4691 24.8441C28.1292 25.184 27.6682 25.375 27.1875 25.375H1.8125C1.3318 25.375 0.870779 25.184 0.530869 24.8441C0.190959 24.5042 0 24.0432 0 23.5625V9.0625ZM5.4375 9.0625C5.4375 10.0239 5.05558 10.9459 4.37576 11.6258C3.69594 12.3056 2.77391 12.6875 1.8125 12.6875V19.9375C2.77391 19.9375 3.69594 20.3194 4.37576 20.9992C5.05558 21.6791 5.4375 22.6011 5.4375 23.5625H23.5625C23.5625 22.6011 23.9444 21.6791 24.6242 20.9992C25.3041 20.3194 26.2261 19.9375 27.1875 19.9375V12.6875C26.2261 12.6875 25.3041 12.3056 24.6242 11.6258C23.9444 10.9459 23.5625 10.0239 23.5625 9.0625H5.4375Z" fill="#4ECB71"/>
+                    </svg>
+                    <h4>Cash</h4>
+                </div>
+
+            </div>
+            <button class="place-order main-btn" id="sendOrder">Send Order</button>
+        </div>
+        <div id="orderModal" class="modal">
+            <div class="modal-content" style="padding: 20px;">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d_5927_574)">
+                    <rect x="4" y="4" width="40" height="40" rx="20" fill="#3398FF"/>
+                    <path d="M32.3337 17.75L20.8753 29.2083L15.667 24" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="4.5" y="4.5" width="39" height="39" rx="19.5" stroke="#3398FF"/>
+                    </g>
+                    <defs>
+                    <filter id="filter0_d_5927_574" x="0" y="0" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feMorphology radius="4" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_5927_574"/>
+                    <feOffset/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0.956863 0 0 0 0 0.921569 0 0 0 0 1 0 0 0 1 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_5927_574"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_5927_574" result="shape"/>
+                    </filter>
+                    </defs>
+                    </svg>
+                <h1 class="h2">Order Placement Success!</h1>
+                <span id="totalBill" class="headline"></span>
+                <div>
+                    <p class="p">Order ID:</p>
+                    <span id="orderID"></span>
+                </div>
+                <div>
+                    <p class="p">Placement Time: </p>
+                    <span id="placementTime"></span>
+                </div>
+                <div>
+                    <p class="p">Branch Location:</p>
+                    <span id="branchLocation"></span>
+                </div>
+                <div>
+                    <p class="p">Payment Method:</p>
+                    <span id="paymentMethod"></span>
+                </div>
+                <button id="newOrder"><a href="/kickoff" style="color: #fff; text-decoration: none;">New Order</a></button>
+
+            </div>
+            <div class="modal-content flying">
+                <img class="flying_rocket" src="rocket/images/gifs/flying_rocket.gif">
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="rocket/scripts/main.js"></script>
+
+</body>
+</html>

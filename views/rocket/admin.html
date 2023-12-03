@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Cafe | Dashboard</title>
+    <link rel="stylesheet" href="../../static/rocket/style/reservation.css">
+    <link rel="stylesheet" href="../../static/rocket/style/order.css">
+    <link rel="stylesheet" href="../../static/rocket/style/admin.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <img src="../../static/rocket/images/logos/1-removebg-preview.png" class="logo">
+            <div>
+                <button class="dashboard-btn active" onclick="moveToDashboard('dashboard')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" viewBox="0 0 24 24"><path d="M3 13H11V3H3V13ZM3 21H11V15H3V21ZM13 21H21V11H13V21ZM13 3V9H21V3H13Z"></path></svg>
+                </button>
+                <button class="table-btn" style="display: none;" onclick="moveToDashboard('table')">
+                    <img src="../../static/rocket/images/ui images/tables/empty.png">
+                </button>
+                {% if user_info['rule'] == "owner" %}
+                <button class="dishes-btn" onclick="moveToDashboard('dishes')">
+                    <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                    </svg>
+                </button>
+                <button class="vouchers-btn" onclick="moveToDashboard('vouchers')">
+                    <svg width="35" height="35" viewBox="0 0 24 24" class="voucher-svg" style="fill: none;" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22Z" stroke="#959799" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15.5 16C15.6326 16 15.7598 15.9473 15.8536 15.8536C15.9473 15.7598 16 15.6326 16 15.5C16 15.3674 15.9473 15.2402 15.8536 15.1464C15.7598 15.0527 15.6326 15 15.5 15C15.3674 15 15.2402 15.0527 15.1464 15.1464C15.0527 15.2402 15 15.3674 15 15.5C15 15.6326 15.0527 15.7598 15.1464 15.8536C15.2402 15.9473 15.3674 16 15.5 16ZM8.5 9C8.63261 9 8.75979 8.94732 8.85355 8.85355C8.94732 8.75979 9 8.63261 9 8.5C9 8.36739 8.94732 8.24021 8.85355 8.14645C8.75979 8.05268 8.63261 8 8.5 8C8.36739 8 8.24021 8.05268 8.14645 8.14645C8.05268 8.24021 8 8.36739 8 8.5C8 8.63261 8.05268 8.75979 8.14645 8.85355C8.24021 8.94732 8.36739 9 8.5 9Z" fill="#959799" stroke="#959799" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 8L8 16" stroke="#959799" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                {%endif%}
+
+            </div>
+            <div class="log">
+                <form action="/rocket/logout" method="get">
+                    <button class="logout" value="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 24 24"><path d="M5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V3C4 2.44772 4.44772 2 5 2ZM9 11V8L4 12L9 16V13H15V11H9Z" fill="rgba(235,88,88,1)"></path></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <main class="dashboard main">
+            <div class="welcome">
+                <h1>Hi, {{user_info['email']}}</h1>
+            </div>
+            <div class="analysis">
+                {% if user_info['rule'] == "owner" %}
+                <div class="card">
+                    <div class="headline">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20" fill="none">
+                            <path d="M8.73073 13.743C8.57436 13.743 8.42439 13.8051 8.31382 13.9157C8.20325 14.0262 8.14113 14.1762 8.14113 14.3326C8.14113 14.4889 8.20325 14.6389 8.31382 14.7495C8.42439 14.86 8.57436 14.9222 8.73073 14.9222H11.4822C11.6386 14.9222 11.7885 14.86 11.8991 14.7495C12.0097 14.6389 12.0718 14.4889 12.0718 14.3326C12.0718 14.1762 12.0097 14.0262 11.8991 13.9157C11.7885 13.8051 11.6386 13.743 11.4822 13.743H8.73073ZM7.01696 2.93359C6.75817 2.93356 6.50338 2.99739 6.27519 3.11944C6.04699 3.2415 5.85245 3.41799 5.70883 3.63325L4.08153 6.07499C3.90923 6.33339 3.81732 6.63703 3.81739 6.9476V9.22268C3.81739 9.43118 3.90021 9.63113 4.04764 9.77856C4.19507 9.92599 4.39503 10.0088 4.60352 10.0088H4.88417L4.21045 11.5811C3.89771 11.5811 3.59777 11.7053 3.37663 11.9265C3.15549 12.1476 3.03125 12.4475 3.03125 12.7603V15.9048C3.03125 16.2176 3.15549 16.5175 3.37663 16.7387C3.59777 16.9598 3.89771 17.084 4.21045 17.084H16.0025C16.3152 17.084 16.6152 16.9598 16.8363 16.7387C17.0575 16.5175 17.1817 16.2176 17.1817 15.9048V12.7603C17.1817 12.4475 17.0575 12.1476 16.8363 11.9265C16.6152 11.7053 16.3152 11.5811 16.0025 11.5811L15.3288 10.0088H15.6094C15.8179 10.0088 16.0179 9.92599 16.1653 9.77856C16.3127 9.63113 16.3956 9.43118 16.3956 9.22268V6.9476C16.3956 6.63703 16.3037 6.33339 16.1314 6.07499L14.5041 3.63404C14.3606 3.41863 14.1661 3.24198 13.9379 3.11979C13.7097 2.9976 13.4548 2.93364 13.196 2.93359H7.01696ZM14.8233 8.82961L14.1496 7.25734H15.2164V8.82961H14.8233ZM12.8658 7.25734L14.703 11.5426L14.6841 11.5811H5.5288L5.50994 11.5426L7.34635 7.25734H12.8658ZM14.7172 6.07814H5.49657L6.68993 4.28811C6.72579 4.23422 6.7744 4.19002 6.83145 4.15943C6.88851 4.12885 6.95223 4.11283 7.01696 4.1128H13.196C13.2607 4.11283 13.3244 4.12885 13.3815 4.15943C13.4385 4.19002 13.4872 4.23422 13.523 4.28811L14.7172 6.07814ZM6.06338 7.25734L5.38966 8.82961H4.99659V7.25734H6.06338ZM4.21045 12.7603H16.0025V15.9048H4.21045V12.7603Z" fill="#1782FF"/>
+                        </svg>
+                        <select name="date" disabled>
+                            <option value="today">Today's Sale</option>
+                            <option value="week">Week's Sale</option>
+                            <option value="month">Month's Sale</option>
+                        </select>
+                    </div>
+                    <h4>Opening Drawer Amount</h4>
+                    <h3 id="drawer-amount">{{drawer_amount}} LE</h3>
+                </div>
+                {% endif %}
+                <div class="card">
+                    <div class="headline">
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.415527" y="0.867188" width="34.8319" height="34.8319" rx="3" fill="#3475FF" fill-opacity="0.2"/>
+                            <g clip-path="url(#clip0_5979_406)">
+                            <path d="M25.9093 25.4003C24.7389 23.3838 22.9352 21.9379 20.8303 21.2524C21.8715 20.6347 22.6804 19.6935 23.1329 18.5733C23.5854 17.453 23.6563 16.2158 23.3349 15.0515C23.0135 13.8872 22.3174 12.8602 21.3537 12.1283C20.3899 11.3964 19.2117 11 18 11C16.7883 11 15.6101 11.3964 14.6463 12.1283C13.6826 12.8602 12.9865 13.8872 12.6651 15.0515C12.3437 16.2158 12.4146 17.453 12.8671 18.5733C13.3196 19.6935 14.1285 20.6347 15.1697 21.2524C13.0648 21.9371 11.2611 23.383 10.0907 25.4003C10.0478 25.4701 10.0193 25.5477 10.007 25.6286C9.99464 25.7095 9.99869 25.792 10.0189 25.8713C10.0391 25.9506 10.075 26.0251 10.1245 26.0903C10.1741 26.1556 10.2362 26.2103 10.3073 26.2512C10.3784 26.2921 10.457 26.3184 10.5384 26.3286C10.6199 26.3387 10.7026 26.3325 10.7816 26.3104C10.8606 26.2882 10.9344 26.2504 10.9985 26.1993C11.0627 26.1483 11.1159 26.0849 11.1551 26.013C12.6029 23.5194 15.162 22.0305 18 22.0305C20.838 22.0305 23.3971 23.5194 24.8449 26.013C24.8841 26.0849 24.9373 26.1483 25.0015 26.1993C25.0656 26.2504 25.1394 26.2882 25.2184 26.3104C25.2974 26.3325 25.3801 26.3387 25.4616 26.3286C25.543 26.3184 25.6216 26.2921 25.6927 26.2512C25.7638 26.2103 25.8259 26.1556 25.8755 26.0903C25.925 26.0251 25.9609 25.9506 25.9811 25.8713C26.0013 25.792 26.0054 25.7095 25.993 25.6286C25.9807 25.5477 25.9522 25.4701 25.9093 25.4003ZM13.6965 16.5163C13.6965 15.6681 13.9489 14.8388 14.4217 14.1336C14.8946 13.4283 15.5667 12.8785 16.3531 12.5539C17.1395 12.2293 18.0048 12.1444 18.8396 12.3099C19.6744 12.4754 20.4412 12.8838 21.0431 13.4836C21.6449 14.0834 22.0548 14.8476 22.2208 15.6796C22.3869 16.5115 22.3017 17.3739 21.976 18.1576C21.6502 18.9413 21.0986 19.6111 20.3909 20.0823C19.6832 20.5536 18.8512 20.8051 18 20.8051C16.859 20.8039 15.7651 20.3517 14.9583 19.5476C14.1515 18.7436 13.6977 17.6534 13.6965 16.5163Z" fill="#1782FF"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_5979_406">
+                            <rect width="16" height="16" fill="white" transform="translate(10 11)"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                        <select name="date" disabled>
+                            <option value="today">Today</option>
+                            <option value="week">Week</option>
+                            <option value="month">Month</option>
+                        </select>
+                    </div>
+                    <h4>Total Guests</h4>
+                    <h3 id="drawer-amount">{{total_guests}}</h3>
+                </div>
+                {% if user_info['rule'] == "owner" %}
+                <div class="card" style="opacity: 0.5;">
+                    <div class="headline">
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.5 13.25H12.5C11.9477 13.25 11.5 13.6977 11.5 14.25V21.75C11.5 22.3023 11.9477 22.75 12.5 22.75H23.5C24.0523 22.75 24.5 22.3023 24.5 21.75V14.25C24.5 13.6977 24.0523 13.25 23.5 13.25Z" stroke="#1782FF" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.5 16.75H24.5M20.5 20.25H22" stroke="#1782FF" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="0.415527" y="0.867188" width="34.8319" height="34.8319" rx="3" fill="#3475FF" fill-opacity="0.2"/>
+                        </svg>
+
+                        <select name="date" disabled>
+                            <option value="today">Today's Sale</option>
+                            <option value="week">Week's Sale</option>
+                            <option value="month">Month's Sale</option>
+                        </select>
+                    </div>
+                    <h4>Other Payments Sale</h4>
+                    <h3 id="drawer-amount">0.00 LE</h3>
+                </div>
+                {% endif %}
+            </div>
+            <div class="orders-table">
+                <h1>All Orders</h1>
+                <table>
+                <thead>
+                    <tr class="tr_parent">
+                    <th>Phone Number</th>
+                    <th>Orders</th>
+                    <!-- <th>Table</th> -->
+                    <th>Total</th>
+                    <th>Date</th>
+                    <!-- <th>Status</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{order['others']['orderID']}}</td>
+                        <td>
+                            {% for dish in order['order_data'] %}
+                            <div class="dish{{loop.index+1}}">
+                                {{dish['quantity']}}
+                                x
+                                {{dish['name']}},
+                            </div>
+                            {% endfor%}
+                        </td>
+                        <!-- {% if order['others']['table'] == "Take away" %}
+                        <td>Take away</td>
+                        {% else %}
+                        <td>{{order['others']['table']}}</td>
+                        {%endif%} -->
+                        <td>{{order['others']['bill']}} LE</td>
+                        <td>{{order['others']['date']}}</td>
+                        <!-- {% if order['others']['table'] != "Take away" %}
+                        <td>
+                            <select tableID="{{order['others']['table']}}" bill="{{order['others']['bill']}}" class="{{order['kitchen_status']}}" style="border: 1px solid #D9D9D9;" {% if order['kitchen_status'] == 'done' %}disabled{% endif %} onchange="updateStatus(this)">
+                                <option value="done" {% if order['kitchen_status'] == 'done' %}selected{% endif %}>Done</option>
+                                <option value="waiting" {% if order['kitchen_status'] == 'waiting' %}selected{% endif %}>Waiting</option>
+                                <option value="active" {% if order['kitchen_status'] == 'active' %}selected{% endif %}>Active</option>
+                                <option value="canceled" {% if order['kitchen_status'] == 'canceled' %}selected{% endif %}>Canceled</option>
+                            </select>
+                        </td>
+                        {% else %}
+                        <td>
+                            Take away
+                        </td>
+                        {%endif%} -->
+                    </tr>
+                    {%endfor%}
+                    {% for order in archived_data %}
+                    <tr>
+                        <td>{{order['others']['orderID']}}</td>
+                        <td>
+                            {% for dish in order['order_data'] %}
+                            <div class="dish{{loop.index+1}}">
+                                {{dish['quantity']}}
+                                x
+                                {{dish['name']}},
+                            </div>
+                            {% endfor%}
+                        </td>
+                        <td>{{order['others']['table']}}</td>
+                        <td>{{order['others']['bill']}} LE</td>
+                        <td>{{order['others']['date']}}</td>
+                        <td>
+                            <select tableID="{{order['others']['table']}}" bill="{{order['others']['bill']}}" class="{{order['kitchen_status']}}" style="border: 1px solid #D9D9D9;" {% if order['kitchen_status'] == 'done' %}disabled{% endif %} onchange="updateStatus(this)">
+                                <option value="done" {% if order['kitchen_status'] == 'done' %}selected{% endif %}>Done</option>
+                                <option value="waiting" {% if order['kitchen_status'] == 'waiting' %}selected{% endif %}>Waiting</option>
+                                <option value="active" {% if order['kitchen_status'] == 'active' %}selected{% endif %}>Active</option>
+                                <option value="canceled" {% if order['kitchen_status'] == 'canceled' %}selected{% endif %}>Canceled</option>
+                            </select>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+                </table>
+            </div>
+        </main>
+
+        <main class="table-dashboard dashboard"  style="display: none;">
+            <div class="welcome">
+                <h1>Hi, {{user_info['email']}}</h1>
+                {% if user_info['rule'] == "owner" %}
+                <button class="add-more-btn" onclick="add_table()">Add Table</button>
+                {%endif%}
+            </div>
+            <div class="reservation-table">
+                <div class="tables">
+                    {% for table in all_tables %}
+                    <div class="table tab {{table['status']}}" tableID="{{table['id']}}">
+                        <img src="../../static/rocket/images/ui images/tables/{{table['status']}}.png">
+                        <div><h4>{{table['id']}}</h4></div>
+                        {% if user_info['rule'] == "owner" %}
+                        <button class="delete-btn" onclick="remove_table(this)">Delete Table</button>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    <div class="map">
+                        <div class="reserved-map"><div class="rect"></div>Reserved {{analysis['reserved']}}</div>
+                        <div class="empty-map"><div class="rect"></div>Empty {{analysis['empty']}}</div>
+                    </div>
+                </div>
+                <div class="guests-control">
+                    <svg width="186" height="186" viewBox="0 0 186 186" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M121.8 166.104V170.904H126.6V166.104H121.8ZM25.8 166.104H21V170.904H25.8V166.104ZM160.2 166.2V171H165V166.2H160.2ZM97.8 60.5808C97.7987 63.7313 97.177 66.8506 95.9702 69.7608C94.7634 72.671 92.9952 75.3149 90.7666 77.5418C88.538 79.7686 85.8926 81.5346 82.9815 82.7391C80.0703 83.9436 76.9505 84.5629 73.8 84.5616V94.1616C92.3568 94.1616 107.4 79.128 107.4 60.5808H97.8ZM73.8 84.5616C70.6495 84.5629 67.5297 83.9436 64.6185 82.7391C61.7074 81.5346 59.062 79.7686 56.8334 77.5418C54.6048 75.3149 52.8366 72.671 51.6298 69.7608C50.423 66.8506 49.8013 63.7313 49.8 60.5808H40.2C40.2013 64.992 41.0714 69.3597 42.7606 73.4346C44.4498 77.5095 46.9251 81.2117 50.0452 84.33C53.1652 87.4483 56.8689 89.9214 60.9448 91.6084C65.0206 93.2953 69.3888 94.1629 73.8 94.1616V84.5616ZM49.8 60.5808C49.8013 57.4303 50.423 54.311 51.6298 51.4008C52.8366 48.4906 54.6048 45.8467 56.8334 43.6198C59.062 41.393 61.7074 39.627 64.6185 38.4225C67.5297 37.218 70.6495 36.5987 73.8 36.6V27C69.3888 26.9987 65.0206 27.8663 60.9448 29.5532C56.8689 31.2402 53.1652 33.7133 50.0452 36.8316C46.9251 39.9499 44.4498 43.6522 42.7606 47.727C41.0714 51.8019 40.2013 56.1696 40.2 60.5808H49.8ZM73.8 36.6C80.1619 36.6 86.2635 39.1259 90.7638 43.6227C95.2641 48.1194 97.7949 54.2189 97.8 60.5808H107.4C107.399 56.1696 106.529 51.8019 104.839 47.727C103.15 43.6522 100.675 39.9499 97.5548 36.8316C94.4348 33.7133 90.7311 31.2402 86.6552 29.5532C82.5794 27.8663 78.2112 26.9987 73.8 27V36.6ZM121.8 161.304H25.8V170.904H121.8V161.304ZM30.6 166.104V146.952H21V166.104H30.6ZM54.6 122.942H93V113.342H54.6V122.942ZM117 146.942V166.104H126.6V146.942H117ZM93 122.942C99.3652 122.942 105.47 125.471 109.971 129.972C114.471 134.473 117 140.577 117 146.942H126.6C126.6 138.031 123.06 129.485 116.759 123.184C110.458 116.882 101.911 113.342 93 113.342V122.942ZM30.6 146.952C30.6 140.587 33.1286 134.473 37.6294 129.972C42.1303 125.471 48.2348 122.942 54.6 122.942V113.342C45.6887 113.342 37.1424 116.882 30.8412 123.184C24.54 129.485 21 138.041 21 146.952H30.6ZM155.4 151.8V166.2H165V151.8H155.4ZM160.2 161.4H136.2V171H160.2V161.4ZM136.2 132.6C141.292 132.6 146.176 134.623 149.776 138.224C153.377 141.824 155.4 146.708 155.4 151.8H165C165 144.162 161.966 136.836 156.565 131.435C151.164 126.034 143.838 123 136.2 123V132.6ZM131.4 103.8C127.581 103.8 123.918 102.283 121.218 99.5823C118.517 96.8818 117 93.2191 117 89.4H107.4C107.4 95.7652 109.929 101.87 114.429 106.371C118.93 110.871 125.035 113.4 131.4 113.4V103.8ZM145.8 89.4C145.8 93.2191 144.283 96.8818 141.582 99.5823C138.882 102.283 135.219 103.8 131.4 103.8V113.4C137.765 113.4 143.87 110.871 148.371 106.371C152.871 101.87 155.4 95.7652 155.4 89.4H145.8ZM131.4 75C135.219 75 138.882 76.5171 141.582 79.2177C144.283 81.9182 145.8 85.5809 145.8 89.4H155.4C155.4 83.0348 152.871 76.9303 148.371 72.4294C143.87 67.9286 137.765 65.4 131.4 65.4V75ZM131.4 65.4C125.035 65.4 118.93 67.9286 114.429 72.4294C109.929 76.9303 107.4 83.0348 107.4 89.4H117C117 85.5809 118.517 81.9182 121.218 79.2177C123.918 76.5171 127.581 75 131.4 75V65.4Z" fill="#1782FF"/>
+                    </svg>
+                    <h3>Current Guests</h3>
+                    <div>
+                        <input type="number" value="{{guests}}" id="integerInput" name="guests">
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% if user_info['rule'] == "owner" %}
+        <main class="dishes-dashboard dashboard" style="display: none;">
+            <div class="welcome">
+                <h1>Hi, {{user_info['email']}}</h1>
+            </div>
+            <form action="/rocket/add-dish" method="post" class="add-dish-form" enctype="multipart/form-data">
+                <label for="dish-name" style="display: flex;">
+                    <h4>Dish Name:</h4>
+                    <div class="input-group">
+                        <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                        </svg>
+                        <input type="text" name="dish-name" required placeholder="Fluffy Pancakes" id="dish-name">
+                    </div>
+                </label>
+                <label for="dish-category" style="display: flex;">
+                    <h4>Dish Category:</h4>
+                    <div class="input-group">
+                        <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                        </svg>
+                        <select name="dish-category" required onchange="update_subcategories(this)">
+                            <option selected value="-">-</option>
+                            <option value="Foods">Foods</option>
+                            <option value="Desserts">Desserts</option>
+                            <option value="Drinks">Drinks</option>
+                        </select>
+                    </div>
+                </label>
+                <label for="sub-dish-category" style="display: none;">
+                    <h4>Dish Subcategory:</h4>
+                    <div class="input-group">
+                        <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                        </svg>
+                        <select name="sub-dish-category" required>
+
+                        </select>
+                    </div>
+                </label>
+                <label for="dish-description" style="display: flex;">
+                    <h4>Dish Description:</h4>
+                    <div class="input-group">
+                        <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                        </svg>
+                        <input type="text" name="dish-description" required placeholder="A Comforting Bowl Of Creamy Tomato Soup With A Hint Of Basil." id="dish-description">
+                    </div>
+                </label>
+                <label for="dish-price" style="display: flex;">
+                    <h4>Dish Price:</h4>
+                    <div class="input-group">
+                        <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                        </svg>
+                        <input type="number" name="dish-price" required placeholder="450.00" id="dish-price">
+                    </div>
+                </label>
+                <label for="dish-image" style="display: flex;">
+                    <h4>Dish Image:</h4>
+                    <div class="input-group">
+                        <svg width="44" height="45" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3.06982L4 9.06982V21.0698H20V9.06982L12 3.06982ZM12.5 12.5698C12.5 13.3998 11.83 14.0698 11 14.0698V18.0698H10V14.0698C9.17 14.0698 8.5 13.3998 8.5 12.5698V9.56982H9.5V12.5698H10V9.56982H11V12.5698H11.5V9.56982H12.5V12.5698ZM15 18.0698H14V14.5698H13V11.5698C13 10.4698 13.9 9.56982 15 9.56982V18.0698Z" fill="#959799"/>
+                        </svg>
+                        <input type="file" name="dish-image" required id="dish-image">
+                    </div>
+                </label>
+                <button type="submit" class="add-more-btn" style="margin: 15px auto; justify-self: center;">Add Dish</button>
+            </form>
+            <div class="menu-lst" style="height: 80vh; margin: 30px;">
+                {% for dish in all_dishes %}
+                <div class="menu-element" data-category="{{dish['dish']['cat']}}" data-subcategory="{{dish['dish']['subcat'].title()}}">
+                    <img src="../{{ dish['dish_image'] }}">
+                    <h2 class="element-name h2">{{ dish['dish']['name'] }}</h2>
+                    <p class="element-desc p">{{dish['dish']['description']}}</p>
+                    <!-- <h4 class="orderedCount">Ordered: {{dish['ordered']}}</h4> -->
+                    <button class="remove-dish" onclick="remove_dish(this)" nameToDelete="{{dish['dish']['name']}}"><h3 class="price">{{dish['dish']['price']}} LE</h3>
+                        <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 1L1 8M1 1L8 8" stroke="#D11010"/>
+                            </svg>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+        <main class="voucher-creator dashboard" style="display: none;">
+            <div class="voucher-container">
+                <div class="head">
+                    <img src="../../static/rocket/images/ui images/rocket2.png">
+                    <p>Here you can generate Vouchers for users to use in <strong>ROCKET CAFE</strong></p>
+                </div>
+                <div class="voucherChooseCards">
+                    <div onclick="moveToPercentageVoucher(this)"  class="voucher-choice-card percentage-voucher-button">
+                        <img src="../../static/rocket/images/ui images/vouchers/percentage.png">
+                        <div class="text">
+                            <h1>Generate by Percentage</h1>
+                            <h5>Generate a voucher that applies a percentage consumption of total bill</h5>
+                        </div>
+                    </div>
+                    <div onclick="moveToFixedVoucher(this)" class="voucher-choice-card fixed-voucher-button">
+                        <img src="../../static/rocket/images/ui images/vouchers/fixed.png">
+                        <div class="text">
+                            <h1>Generate by Fixed Amount</h1>
+                            <h5>Generate a voucher that applies a fixed amount to the total bill.</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="voucher-generator" style="display: none;">
+                    <form style="display: none;" action="/rocket/add-voucher-percentage" class="percentage_voucher" method="post">
+                        <h2 style="margin-right: auto; margin-bottom: 35px;">Add Vouchers</h2>
+                        <label for="voucher_key">
+                            <h4>Voucher Key</h4>
+                            <input type="text" name="voucher_key" required id="voucher_key" placeholder="Enter the voucher key you want to add, something like “ROCKET150”.">
+                        </label>
+                        <label for="percentage">
+                            <h4>Applied Percentage</h4>
+                            <input type="number" name="percentage_value" required id="percentage" placeholder="The amount of bill consumption.">
+                        </label>
+                        <label for="min_charge">
+                            <h4>Minimum Charge</h4>
+                            <input type="number" name="min_charge" required id="min_charge" placeholder="Minimum charge.">
+                        </label>
+                        <button type="submit" class="main-btn">Add Voucher</button>
+                    </form>
+                    <form style="display: none;" action="/rocket/add-voucher-fixed" class="fixed_voucher"  method="post">
+                        <h2 style="margin-right: auto; margin-bottom: 35px;">Add Vouchers</h2>
+                        <label for="voucher_key">
+                            <h4>Voucher Key</h4>
+                            <input type="text" name="voucher_key" required id="voucher_key" placeholder="Enter the voucher key you want to add, something like “ROCKET150”.">
+                        </label>
+                        <label for="fixed">
+                            <h4>Applied Fixed Amount</h4>
+                            <input type="number" name="fixed_value" required id="fixed" placeholder="The amount of fixed consumption.">
+                        </label>
+                        <label for="min_charge">
+                            <h4>Minimum Charge</h4>
+                            <input type="number" name="min_charge" required id="min_charge" placeholder="Minimum charge.">
+                        </label>
+                        <button type="submit" class="main-btn">Add Voucher</button>
+                    </form>
+                    <div class="active-vouchers">
+                        {%if active_vouchers %}
+                        <h2>Active Vouchers</h2>
+                        <div class="active-vouchers-wrapper">
+                            {%for voucher in active_vouchers %}
+                            <div class="active-voucher">
+                                <h4>{{voucher[0]}}</h4>
+                                <button voucherKey="{{voucher[0]}}" onclick="delete_voucher(this)">X</button>
+                            </div>
+                            {%endfor%}
+                        </div>
+                        {%endif%}
+                        <button class="main-btn" onclick="moveToDefaultVoucher()">Back</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {%endif%}
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../static/rocket/scripts/admin.js"></script>
+</body>
+
+</html>
